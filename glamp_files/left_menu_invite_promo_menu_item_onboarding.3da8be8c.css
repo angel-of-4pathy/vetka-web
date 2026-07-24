@@ -1,0 +1,83 @@
+﻿.vkit-u24HP9.vkit-u24HP9.vkit-u24HP9 {
+  font-family: var(--vk-sans-display, 'VK Sans Display'), var(--vkui--font_family_fallbacks);
+}
+
+.vkit-FKVBB6 {
+  position: absolute;
+  z-index: inherit;
+  width: var(--onboarding-tooltip-marker-size-x, 48px);
+  height: var(--onboarding-tooltip-marker-size-y, 48px);
+  inset: var(--onboarding-tooltip-marker-inset, auto);
+  transform: translate(
+    var(--onboarding-tooltip-marker-left-offset, 0),
+    var(--onboarding-tooltip-marker-top-offset, 0)
+  );
+}
+
+.vkit-NsXEka {
+  /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+  color: #aff70d;
+}
+
+.vkit-s3TBrb {
+  /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+  color: #13ffd0;
+}
+
+.vkit-RqoFNS {
+  /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+  color: #0077ff;
+}
+
+.vkit-11jx4K {
+  /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+  color: #f45fff;
+}
+
+.vkit-mQlVK5 {
+  color: var(--vkui--color_text_contrast_themed);
+  background: var(--vkui--color_background_modal_inverse);
+  box-shadow: var(--vkui--elevation3);
+  padding: 8px 12px 10px 12px;
+  border-radius: 10px;
+  transform-origin: var(--onboarding-tooltip-content-transform-origin, center);
+  visibility: hidden;
+  white-space: normal;
+  text-align: left;
+
+  /* Устраняет проблему в Safari с артефактами фона при скрытии элемента
+     https://jira.mvk.com/browse/STORIES-21461 */
+  will-change: transform;
+}
+
+.vkit-DAbwg5 {
+  visibility: visible;
+  opacity: 0;
+  transform: rotate(0) translateY(var(--onboarding-tooltip-content-animation-start, 0%));
+  animation: vkit-3AI8yF var(--vkui--animation_duration_l) cubic-bezier(0.17, 0.17, 0.17, 1.6)
+    var(--vkui--animation_duration_s) forwards;
+}
+
+.vkit-iaV6RX {
+  transform: rotate(var(--onboarding-tooltip-content-tilt-degree, 0deg)) translateY(0);
+  visibility: visible;
+  opacity: 1;
+  animation: vkit-WCxILz var(--vkui--animation_duration_m) cubic-bezier(0.7, 0, 0.7, 1)
+    var(--vkui--animation_duration_m) forwards;
+  pointer-events: none;
+}
+
+@keyframes vkit-3AI8yF {
+  100% {
+    transform: rotate(var(--onboarding-tooltip-content-tilt-degree, 0deg)) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes vkit-WCxILz {
+  100% {
+    opacity: 0;
+    transform: rotate(0) translateY(var(--onboarding-tooltip-content-animation-start, 0%));
+  }
+}
+

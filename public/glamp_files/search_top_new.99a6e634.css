@@ -1,0 +1,52 @@
+﻿.TopSearchInput__root--vPHX1 {
+  height: 100%;
+  max-width: 100%;
+}
+
+.TopSearchInput__inner--OrtPU {
+  /* Внутри нас компонент Search из VKUI, которому хочется 10000px ширины: https://vk.cc/cNIq1r */
+  min-width: 0;
+}
+
+.TopSearchInput__hiddenButtons--MqHWy {
+  height: inherit;
+}
+
+/* Необходимо для выравнивания отметок относительно тайтла сообщества. Выпилить при переходе шапки сообщества на SPA */
+
+.BusinessMark__link--iT84l {
+  vertical-align: middle;
+}
+
+/* Необходимо для выравнивания отметок относительно тайтла сообщества. Выпилить при переходе шапки сообщества на SPA */
+
+.BusinessMarkData__icon--NPsGb.BusinessMarkData__icon--NPsGb {
+  vertical-align: baseline;
+}
+
+.YandexBrowserBanner__container--cm65n {
+  min-height: 72px;
+  border-radius: var(--vkui--size_border_radius--regular);
+  padding: 9px 13px;
+  box-sizing: border-box;
+  background-image: var(--ya-banner-bg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.YandexBrowserBanner__linkWrap--Rx3sW {
+  display: block;
+}
+
+.YandexBrowserBanner__text--BfIRp {
+  display: inline-block;
+  width: 50%;
+}
+
+.YandexBrowserBanner__closeWrap--RlBrw {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
