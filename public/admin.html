@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VETKA — Панель управления</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a1a1f;
+            --bg2: #0f2a32;
+            --bg3: #132f38;
+            --accent: #c8956c;
+            --accent-light: #e8b88a;
+            --text: #f5f0eb;
+            --text2: #9bb5be;
+            --text3: #6a8a94;
+            --border: rgba(200,149,108,0.15);
+            --green: #2d7a50;
+            --red: #c85c5c;
+            --yellow: #d4a843;
+            --radius: 12px;
+            --font: 'Inter', sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+        .layout { display: flex; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: var(--bg2);
+            border-right: 1px solid var(--border);
+            padding: 24px 0;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+        .sidebar__logo {
+            padding: 0 24px 24px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 16px;
+        }
+        .sidebar__logo small { display: block; font-size: 0.7rem; letter-spacing: 1px; color: var(--text3); font-weight: 400; margin-top: 4px; }
+        .sidebar__nav { display: flex; flex-direction: column; }
+        .sidebar__link {
+            padding: 12px 24px;
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+        .sidebar__link:hover { color: var(--text); background: rgba(200,149,108,0.05); }
+        .sidebar__link.active { color: var(--accent); border-left-color: var(--accent); background: rgba(200,149,108,0.08); }
+        .sidebar__back { margin-top: auto; padding: 16px 24px; border-top: 1px solid var(--border); }
+        .sidebar__back a { color: var(--text3); text-decoration: none; font-size: 0.85rem; }
+        .sidebar__back a:hover { color: var(--accent); }
+
+        /* Main */
+        .main { flex: 1; padding: 32px; overflow-x: auto; }
+        .main__title { font-size: 1.6rem; font-weight: 600; margin-bottom: 24px; }
+
+        /* Stats Grid */
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+        .stat-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+        .stat-card__label { font-size: 0.8rem; color: var(--text3); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-card__value { font-size: 2rem; font-weight: 700; color: var(--accent); }
+        .stat-card__sub { font-size: 0.8rem; color: var(--text2); margin-top: 4px; }
+
+        /* Table */
+        .table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 32px; }
+        .table-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+        .table-header h3 { font-size: 1.1rem; }
+        .table-filters { display: flex; gap: 8px; }
+        .table-filters select, .table-filters input {
+            padding: 6px 12px; background: var(--bg); border: 1px solid var(--border);
+            border-radius: 6px; color: var(--text); font-family: var(--font); font-size: 0.85rem; outline: none;
+        }
+        .table-filters select:focus, .table-filters input:focus { border-color: var(--accent); }
+        table { width: 100%; border-collapse: collapse; }
+        th { padding: 12px 16px; text-align: left; font-size: 0.8rem; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.2); }
+        td { padding: 12px 16px; font-size: 0.9rem; border-bottom: 1px solid rgba(200,149,108,0.07); color: var(--text2); }
+        tr:hover td { background: rgba(200,149,108,0.03); }
+
+        /* Status badges */
+        .badge { padding: 4px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; display: inline-block; }
+        .badge--pending { background: rgba(212,168,67,0.15); color: var(--yellow); }
+        .badge--confirmed { background: rgba(45,122,80,0.15); color: var(--green); }
+        .badge--cancelled { background: rgba(200,92,92,0.15); color: var(--red); }
+
+        /* Action buttons */
+        .action-btn {
+            padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px;
+            background: transparent; color: var(--text2); font-size: 0.8rem; cursor: pointer;
+            transition: all 0.2s; font-family: var(--font);
+        }
+        .action-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .action-btn--confirm { border-color: var(--green); color: var(--green); }
+        .action-btn--confirm:hover { background: var(--green); color: #fff; }
+        .action-btn--cancel { border-color: var(--red); color: var(--red); }
+        .action-btn--cancel:hover { background: var(--red); color: #fff; }
+        .actions { display: flex; gap: 6px; }
+
+        /* Page visibility */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Empty state */
+        .empty { padding: 48px; text-align: center; color: var(--text3); }
+
+        @media (max-width: 900px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .sidebar { width: 200px; }
+        }
+        @media (max-width: 600px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: static; }
+            .sidebar__nav { flex-direction: row; overflow-x: auto; }
+            .sidebar__link { white-space: nowrap; border-left: none; border-bottom: 3px solid transparent; }
+            .sidebar__link.active { border-bottom-color: var(--accent); border-left-color: transparent; }
+            .main { padding: 16px; }
+            .stats { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar__logo">VETKA <small>Панель управления</small></div>
+            <nav class="sidebar__nav">
+                <a href="#" class="sidebar__link active" data-page="dashboard">📊 Дашборд</a>
+                <a href="#" class="sidebar__link" data-page="bookings">📋 Бронирования</a>
+                <a href="#" class="sidebar__link" data-page="certificates">🎁 Сертификаты</a>
+                <a href="#" class="sidebar__link" data-page="reviews">⭐ Отзывы</a>
+                <a href="#" class="sidebar__link" data-page="rooms">🏡 Номера</a>
+            </nav>
+            <div class="sidebar__back"><a href="/">← Вернуться на сайт</a></div>
+        </aside>
+
+        <main class="main">
+            <!-- Dashboard -->
+            <div class="page active" id="page-dashboard">
+                <h2 class="main__title">Дашборд</h2>
+                <div class="stats" id="statsGrid"></div>
+                <div class="table-wrap">
+                    <div class="table-header"><h3>Последние бронирования</h3></div>
+                    <table><thead><tr>
+                        <th>Код</th><th>Гость</th><th>Домик</th><th>Заезд</th><th>Выезд</th><th>Сумма</th><th>Статус</th>
+                    </tr></thead><tbody id="recentBookingsTable"></tbody></table>
+                </div>
+            </div>
+
+            <!-- Bookings -->
+            <div class="page" id="page-bookings">
+                <h2 class="main__title">Бронирования</h2>
+                <div class="table-wrap">
+                    <div class="table-header">
+                        <h3>Все бронирования</h3>
+                        <div class="table-filters">
+                            <button class="btn btn--outline" onclick="exportBookingsCSV()" style="margin-right: 15px; border-color: var(--green); color: var(--green);">Скачать CSV</button>
+                            <select id="filterStatus">
+                                <option value="">Все статусы</option>
+                                <option value="pending">Ожидают</option>
+                                <option value="confirmed">Подтверждены</option>
+                                <option value="cancelled">Отменены</option>
+                            </select>
+                        </div>
+                    </div>
+                    <table><thead><tr>
+                        <th>Код</th><th>Гость</th><th>Телефон</th><th>Домик</th><th>Заезд</th><th>Выезд</th><th>Гостей</th><th>Сумма</th><th>Статус</th><th>Действия</th>
+                    </tr></thead><tbody id="allBookingsTable"></tbody></table>
+                </div>
+            </div>
+
+            <!-- Certificates -->
+            <div class="page" id="page-certificates">
+                <h2 class="main__title">Сертификаты</h2>
+                <div class="table-wrap">
+                    <div class="table-header"><h3>Все сертификаты</h3></div>
+                    <table><thead><tr>
+                        <th>Код</th><th>Сумма</th><th>Покупатель</th><th>Email</th><th>Получатель</th><th>Использован</th><th>Создан</th><th>Истекает</th>
+                    </tr></thead><tbody id="certificatesTable"></tbody></table>
+                </div>
+            </div>
+
+            <!-- Reviews -->
+            <div class="page" id="page-reviews">
+                <h2 class="main__title">Отзывы</h2>
+                <div class="table-wrap">
+                    <div class="table-header"><h3>Все отзывы</h3></div>
+                    <table><thead><tr>
+                        <th>Гость</th><th>Рейтинг</th><th>Текст</th><th>Тип</th><th>Статус</th><th>Действия</th>
+                    </tr></thead><tbody id="reviewsTable"></tbody></table>
+                </div>
+            </div>
+
+            <!-- Rooms -->
+            <div class="page" id="page-rooms">
+                <h2 class="main__title">Номера</h2>
+                <div class="table-wrap">
+                    <div class="table-header"><h3>Управление номерами</h3></div>
+                    <table><thead><tr>
+                        <th>ID</th><th>Название</th><th>Тип</th><th>Площадь</th><th>Макс. гостей</th><th>Цена (будни)</th><th>Цена (выходные)</th><th>Активен</th>
+                    </tr></thead><tbody id="roomsTable"></tbody></table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Overlay -->
+    <div id="loginOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg); z-index:9999; display:none; align-items:center; justify-content:center;">
+        <div style="background:var(--bg2); padding:40px; border-radius:var(--radius); border:1px solid var(--border); width:100%; max-width:400px; text-align:center;">
+            <h2 style="color:var(--accent); margin-bottom:20px;">VETKA Admin</h2>
+            <input type="text" id="loginUser" placeholder="Логин" style="width:100%; padding:12px; margin-bottom:15px; border-radius:6px; background:var(--bg); color:var(--text); border:1px solid var(--border); outline:none;">
+            <input type="password" id="loginPass" placeholder="Пароль" style="width:100%; padding:12px; margin-bottom:20px; border-radius:6px; background:var(--bg); color:var(--text); border:1px solid var(--border); outline:none;">
+            <button onclick="doLogin()" style="width:100%; padding:12px; background:var(--accent); color:var(--bg); border:none; border-radius:6px; font-weight:600; cursor:pointer;">Войти</button>
+            <p id="loginError" style="color:var(--red); margin-top:15px; font-size:0.9rem; display:none;"></p>
+        </div>
+    </div>
+
+    <script>
+    const API = '/api/admin';
+
+    // ---- Auth Logic ----
+    let jwtToken = localStorage.getItem('vetka_admin_token');
+
+    function showLogin() {
+        document.getElementById('loginOverlay').style.display = 'flex';
+    }
+
+    async function doLogin() {
+        const u = document.getElementById('loginUser').value;
+        const p = document.getElementById('loginPass').value;
+        const err = document.getElementById('loginError');
+        try {
+            const res = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: u, password: p })
+            });
+            const data = await res.json();
+            if (data.success) {
+                jwtToken = data.token;
+                localStorage.setItem('vetka_admin_token', jwtToken);
+                document.getElementById('loginOverlay').style.display = 'none';
+                loadPage('dashboard');
+            } else {
+                err.textContent = data.error || 'Ошибка входа';
+                err.style.display = 'block';
+            }
+        } catch(e) {
+            err.textContent = 'Ошибка сети';
+            err.style.display = 'block';
+        }
+    }
+
+    function logout() {
+        localStorage.removeItem('vetka_admin_token');
+        jwtToken = null;
+        showLogin();
+    }
+
+    // Custom fetch wrapper to include JWT and handle 401/403
+    async function apiFetch(url, options = {}) {
+        if (!jwtToken) {
+            showLogin();
+            throw new Error('No token');
+        }
+        if (!options.headers) options.headers = {};
+        options.headers['Authorization'] = 'Bearer ' + jwtToken;
+
+        const res = await fetch(url, options);
+        if (res.status === 401 || res.status === 403) {
+            logout();
+            throw new Error('Unauthorized');
+        }
+        return res;
+    }
+
+    // Init check
+    if (!jwtToken) {
+        showLogin();
+    } else {
+        document.getElementById('loginOverlay').style.display = 'none';
+        loadPage('dashboard');
+    }
+
+    // ---- Navigation ----
+    document.querySelectorAll('.sidebar__link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (link.dataset.page === 'logout') {
+                e.preventDefault();
+                return logout();
+            }
+            e.preventDefault();
+            document.querySelectorAll('.sidebar__link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + link.dataset.page).classList.add('active');
+            loadPage(link.dataset.page);
+        });
+    });
+
+    // ---- Export ----
+    function exportBookingsCSV() {
+        if (!jwtToken) return showLogin();
+        window.location.href = API + '/bookings/export?token=' + jwtToken;
+    }
+
+    // ---- Load pages ----
+    function loadPage(page) {
+        if (!jwtToken) return;
+        switch(page) {
+            case 'dashboard': loadDashboard(); break;
+            case 'bookings': loadBookings(); break;
+            case 'certificates': loadCertificates(); break;
+            case 'reviews': loadReviews(); break;
+            case 'rooms': loadRooms(); break;
+        }
+    }
+
+    // ---- Dashboard ----
+    async function loadDashboard() {
+        try {
+            const res = await apiFetch(API + '/stats');
+            const { data } = await res.json();
+
+            document.getElementById('statsGrid').innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-card__label">Бронирований</div>
+                    <div class="stat-card__value">${data.bookings.total}</div>
+                    <div class="stat-card__sub">${data.bookings.pending} ожидают подтверждения</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__label">Выручка</div>
+                    <div class="stat-card__value">${(data.revenue.total).toLocaleString('ru-RU')} ₽</div>
+                    <div class="stat-card__sub">бронирования + сертификаты</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__label">Сертификатов</div>
+                    <div class="stat-card__value">${data.certificates.total}</div>
+                    <div class="stat-card__sub">на ${data.revenue.certificates.toLocaleString('ru-RU')} ₽</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__label">Рейтинг</div>
+                    <div class="stat-card__value">${data.reviews.avg_rating}</div>
+                    <div class="stat-card__sub">${data.reviews.total} отзывов</div>
+                </div>
+            `;
+
+            document.getElementById('recentBookingsTable').innerHTML = data.recent_bookings.slice(0, 10).map(b => `
+                <tr>
+                    <td><strong>${escapeHtml(b.booking_code)}</strong></td>
+                    <td>${escapeHtml(b.guest_name)}</td>
+                    <td>${escapeHtml(b.room_name)}</td>
+                    <td>${escapeHtml(b.check_in)}</td>
+                    <td>${escapeHtml(b.check_out)}</td>
+                    <td>${b.total_price.toLocaleString('ru-RU')} ₽</td>
+                    <td><span class="badge badge--${escapeHtml(b.status)}">${escapeHtml(statusLabel(b.status))}</span></td>
+                </tr>
+            `).join('') || '<tr><td colspan="7" class="empty">Нет бронирований</td></tr>';
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    // ---- Bookings ----
+    async function loadBookings(status) {
+        try {
+            let url = API + '/bookings';
+            if (status) url += '?status=' + encodeURIComponent(status);
+            const res = await apiFetch(url);
+            const { data } = await res.json();
+
+            document.getElementById('allBookingsTable').innerHTML = data.map(b => `
+                <tr>
+                    <td><strong>${escapeHtml(b.booking_code)}</strong></td>
+                    <td>${escapeHtml(b.guest_name)}</td>
+                    <td>${escapeHtml(b.guest_phone)}</td>
+                    <td>${escapeHtml(b.room_name)}</td>
+                    <td>${escapeHtml(b.check_in)}</td>
+                    <td>${escapeHtml(b.check_out)}</td>
+                    <td>${escapeHtml(b.guests_count)}</td>
+                    <td>${b.total_price.toLocaleString('ru-RU')} ₽</td>
+                    <td><span class="badge badge--${escapeHtml(b.status)}">${escapeHtml(statusLabel(b.status))}</span></td>
+                    <td class="actions">
+                        ${b.status === 'pending' ? `<button class="action-btn action-btn--confirm" onclick="confirmBooking(${b.id})">✓</button>` : ''}
+                        ${b.status !== 'cancelled' ? `<button class="action-btn action-btn--cancel" onclick="cancelBooking(${b.id})">✗</button>` : ''}
+                    </td>
+                </tr>
+            `).join('') || '<tr><td colspan="10" class="empty">Нет бронирований</td></tr>';
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    document.getElementById('filterStatus').addEventListener('change', (e) => loadBookings(e.target.value));
+
+    async function confirmBooking(id) {
+        if (!confirm('Подтвердить бронирование?')) return;
+        await apiFetch(API + '/bookings/' + id + '/confirm', { method: 'PATCH' });
+        loadBookings(document.getElementById('filterStatus').value);
+        loadDashboard();
+    }
+
+    async function cancelBooking(id) {
+        if (!confirm('Отменить бронирование?')) return;
+        await apiFetch(API + '/bookings/' + id + '/cancel', { method: 'PATCH' });
+        loadBookings(document.getElementById('filterStatus').value);
+        loadDashboard();
+    }
+
+    // ---- Certificates ----
+    async function loadCertificates() {
+        try {
+            const res = await apiFetch(API + '/certificates');
+            const { data } = await res.json();
+
+            document.getElementById('certificatesTable').innerHTML = data.map(c => `
+                <tr>
+                    <td><strong>${escapeHtml(c.code)}</strong></td>
+                    <td>${c.amount.toLocaleString('ru-RU')} ₽</td>
+                    <td>${escapeHtml(c.purchaser_name)}</td>
+                    <td>${escapeHtml(c.purchaser_email)}</td>
+                    <td>${escapeHtml(c.recipient_name) || '—'}</td>
+                    <td>${c.is_used ? '✅ Да' : '❌ Нет'}</td>
+                    <td>${new Date(c.created_at).toLocaleDateString('ru-RU')}</td>
+                    <td>${c.expires_at ? new Date(c.expires_at).toLocaleDateString('ru-RU') : '—'}</td>
+                </tr>
+            `).join('') || '<tr><td colspan="8" class="empty">Нет сертификатов</td></tr>';
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    // ---- Reviews ----
+    async function loadReviews() {
+        try {
+            const res = await apiFetch('/api/reviews');
+            const { data } = await res.json();
+
+            document.getElementById('reviewsTable').innerHTML = data.map(r => `
+                <tr>
+                    <td>${escapeHtml(r.guest_name)}</td>
+                    <td>${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</td>
+                    <td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(r.text)}</td>
+                    <td>${escapeHtml(r.room_type) || '—'}</td>
+                    <td>${r.is_approved ? '<span class="badge badge--confirmed">Опубликован</span>' : '<span class="badge badge--pending">На модерации</span>'}</td>
+                    <td class="actions">
+                        ${!r.is_approved ? `<button class="action-btn action-btn--confirm" onclick="approveReview(${r.id})">✓</button>` : ''}
+                        <button class="action-btn action-btn--cancel" onclick="deleteReview(${r.id})">🗑</button>
+                    </td>
+                </tr>
+            `).join('') || '<tr><td colspan="6" class="empty">Нет отзывов</td></tr>';
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function approveReview(id) {
+        await apiFetch(API + '/reviews/' + id + '/approve', { method: 'PATCH' });
+        loadReviews();
+    }
+
+    async function deleteReview(id) {
+        if (!confirm('Удалить отзыв?')) return;
+        await apiFetch(API + '/reviews/' + id, { method: 'DELETE' });
+        loadReviews();
+    }
+
+    // ---- Rooms ----
+    async function loadRooms() {
+        try {
+            const res = await apiFetch('/api/rooms');
+            const data = await res.json();
+            const rooms = data.data || data;
+            const typeLabels = { dome: 'Купольный', treehouse: 'Дом на дереве', aframe: 'А-фрейм' };
+
+            document.getElementById('roomsTable').innerHTML = rooms.map(r => `
+                <tr>
+                    <td>${r.id}</td>
+                    <td><strong>${escapeHtml(r.name)}</strong></td>
+                    <td>${escapeHtml(typeLabels[r.type] || r.type)}</td>
+                    <td>${r.area} м²</td>
+                    <td>${r.max_guests}</td>
+                    <td>${r.price_weekday.toLocaleString('ru-RU')} ₽</td>
+                    <td>${r.price_weekend.toLocaleString('ru-RU')} ₽</td>
+                    <td>${r.is_active ? '✅' : '❌'}</td>
+                </tr>
+            `).join('');
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    // ---- Helpers ----
+    function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    function statusLabel(status) {
+        return { pending: 'Ожидает', confirmed: 'Подтверждён', cancelled: 'Отменён' }[status] || status;
+    }
+
+    // ---- Init ----
+    loadDashboard();
+    </script>
+</body>
+</html>

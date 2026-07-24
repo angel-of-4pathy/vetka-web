@@ -1,0 +1,43 @@
+﻿.TopButton__bntHover--7U6LW {
+  background-color: var(--vkui--vkontakte_background_hover_alpha);
+}
+
+.TopButton__btnActive--p4YBz {
+  background-color: var(--vkui--color_transparent--active);
+}
+
+.vkit-dALHvS {
+  opacity: 0.5;
+}
+
+.vkit-J2cnSZ {
+  color: var(--vkui--color_text_contrast);
+}
+
+.vkit-mX75Mx {
+  max-width: 254px;
+}
+
+.vkit-7n8Mqk {
+  max-width: 230px;
+}
+
+.vkit-5RxndQ {
+  pointer-events: auto;
+}
+
+.vkit-tLeOku {
+  overflow: hidden;
+  max-width: 358px;
+  width: auto;
+  position: relative;
+}
+
+.vkit-tLeOku:hover {
+  background: var(--vkui--vkontakte_background_hover_alpha);
+}
+
+.vkit-7g1fNW {
+  pointer-events: none;
+}
+

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VETKA — Кемпинг и глэмпинг под Казанью</title>
+    <meta name="description" content="VETKA — кемпинг и глэмпинг в часе от Казани. Купольные шатры, А-фреймы, баня-бочка и уютные палатки в лесу. Забронируйте незабываемый отдых на природе.">
+    <meta property="og:title" content="VETKA — Кемпинг под Казанью">
+    <meta property="og:description" content="Отдых на природе рядом с Казанью. Купольные шатры, А-фреймы, баня-бочка и глэмпинг-палатки.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vetka-glamp.ru">
+    <meta property="og:image" content="/Vetka_files/XXL(10)">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 36 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 0C18 0 8 14 8 24c0 4 2 7 4 9M18 0c0 0 10 14 10 24 0 4-2 7-4 9M18 0v40M18 10c-4 2-7 5-9 8M18 18c4-2 7-5 9-8M18 24c-5 3-8 6-10 8M18 30c5-3 8-6 10-8' stroke='%23c8956c' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="#hero" class="header__logo">
+                <svg class="header__logo-icon" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 0C18 0 8 14 8 24c0 4 2 7 4 9M18 0c0 0 10 14 10 24 0 4-2 7-4 9M18 0v40M18 10c-4 2-7 5-9 8M18 18c4-2 7-5 9-8M18 24c-5 3-8 6-10 8M18 30c5-3 8-6 10-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>VETKA</span>
+            </a>
+            <nav class="header__nav" id="mainNav">
+                <a href="#about" class="header__nav-link">О нас</a>
+                <a href="#rooms" class="header__nav-link">Размещение</a>
+                <a href="#activities" class="header__nav-link">Развлечения</a>
+                <a href="#gallery" class="header__nav-link">Галерея</a>
+                <a href="#booking" class="header__nav-link">Бронирование</a>
+                <a href="#location" class="header__nav-link">Контакты</a>
+                <a href="#booking" class="btn btn--accent header__mobile-cta" style="display:none;">Забронировать</a>
+            </nav>
+            <a href="#booking" class="btn btn--accent header__cta">Забронировать</a>
+            <button class="header__burger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <svg class="hero__svg-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#040d0a"/>
+                        <stop offset="35%" stop-color="#071e18"/>
+                        <stop offset="75%" stop-color="#0d2b22"/>
+                        <stop offset="100%" stop-color="#05130f"/>
+                    </linearGradient>
+                    <radialGradient id="mistAura" cx="50%" cy="55%" r="45%">
+                        <stop offset="0%" stop-color="#1c5243" stop-opacity="0.4"/>
+                        <stop offset="60%" stop-color="#0e2c22" stop-opacity="0.15"/>
+                        <stop offset="100%" stop-color="#040d0a" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+                <rect width="1440" height="900" fill="url(#skyGrad)"/>
+                <circle cx="720" cy="500" r="550" fill="url(#mistAura)"/>
+                <!-- Far Pine Silhouettes -->
+                <g fill="#091f19" opacity="0.65">
+                    <path d="M-20,900 L-20,620 L15,660 L35,590 L55,650 L85,580 L115,640 L145,570 L175,630 L205,560 L245,640 L285,550 L325,630 L365,570 L405,650 L455,560 L505,640 L555,580 L605,660 L655,570 L705,650 L755,550 L805,630 L855,570 L905,650 L955,560 L1005,640 L1055,580 L1105,660 L1155,560 L1205,640 L1255,570 L1305,650 L1355,580 L1405,660 L1460,600 L1460,900 Z"/>
+                </g>
+                <!-- Mid Pine Silhouettes -->
+                <g fill="#07261d" opacity="0.85">
+                    <path d="M-20,900 L-20,670 L25,600 L45,680 L75,590 L105,670 L135,610 L165,690 L210,600 L255,680 L300,590 L345,670 L390,610 L440,690 L490,600 L540,680 L590,620 L640,700 L690,600 L740,680 L790,610 L840,690 L890,600 L940,680 L990,620 L1040,700 L1090,600 L1140,680 L1190,610 L1240,690 L1290,600 L1340,680 L1390,610 L1460,670 L1460,900 Z"/>
+                </g>
+                <!-- Foreground Pine Silhouettes -->
+                <g fill="#041712">
+                    <path d="M-20,900 L-20,720 L15,640 L35,730 L60,630 L90,740 L120,650 L150,750 L190,630 L230,730 L270,640 L310,750 L360,620 L410,740 L460,650 L510,750 L570,630 L630,730 L690,640 L750,750 L810,630 L870,740 L930,650 L990,750 L1050,630 L1110,730 L1170,640 L1230,750 L1290,630 L1350,740 L1410,650 L1460,730 L1460,900 Z"/>
+                </g>
+            </svg>
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__fireflies">
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+        </div>
+        <div class="hero__content">
+            <h1 class="hero__title">Глэмпинг VETKA<br>в сосновом бору</h1>
+            <p class="hero__subtitle">Отдых и уединение на природе в 40 минутах от Казани. Панорамные окна, кедровая баня, горячий чан, детский городок и тишина леса.</p>
+            <div class="hero__buttons">
+                <a href="#rooms" class="btn btn--accent btn--lg">Выбрать домик</a>
+                <a href="https://t.me/VETKAGLAMP" target="_blank" rel="noopener" class="btn btn--outline btn--lg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 7.55c-.17 1.83-1.04 6.77-1.48 9.08-.18.98-.54 1.31-.89 1.34-.76.07-1.34-.5-2.07-.98-1.15-.75-1.8-1.22-2.92-1.96-1.3-.85-.46-1.32.28-2.09.2-.2 3.54-3.25 3.6-3.52.01-.04.01-.17-.06-.23-.07-.06-.18-.04-.26-.02-.11.02-1.9 1.21-5.37 3.55-.51.35-.97.52-1.38.51-.45-.01-1.32-.26-1.97-.47-.8-.26-1.43-.4-1.38-.85.03-.24.36-.48.97-.73 3.8-1.65 6.34-2.74 7.62-3.28 3.62-1.5 4.38-1.76 4.87-1.77.11 0 .35.03.5.15.13.11.17.26.19.37z"/></svg>
+                    Telegram VETKA
+                </a>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <span>Листайте вниз</span>
+            <div class="hero__scroll-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+        </div>
+        <div class="hero__trees">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0,120 L0,100 L60,40 L120,100 L150,60 L180,100 L240,20 L300,100 L340,50 L380,100 L440,30 L500,100 L540,55 L580,100 L640,25 L700,100 L750,45 L800,100 L860,35 L920,100 L960,50 L1000,100 L1060,20 L1120,100 L1160,55 L1200,100 L1260,40 L1320,100 L1380,60 L1440,100 L1440,120 Z" fill="#0a1a1f"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Добро пожаловать</span>
+                <h2 class="section__title">О глэмпинге VETKA</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="about__grid">
+                <div class="about__image reveal">
+                    <img src="/Vetka_files/XXL(10)" alt="Глэмпинг VETKA" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
+                </div>
+                <div class="about__content reveal">
+                    <h3 class="about__heading">Каждая деталь продумана до мелочей</h3>
+                    <p class="about__text">VETKA — это атмосферный глэмпинг в вековом сосновом бору в села Шуман (Высокогорский район), всего в 40 минутах от Казани. Домики расположены на приличном расстоянии друг от друга без глухих заборов — из окон и с террас открывается вид на чистый лес.</p>
+                    <p class="about__text">В каждом доме — тёплый пол, кондиционер, кухонная зона со всей посудой, чаем и специями, колонка Алиса, проектор с фильмами, а также мангальная зона со включёнными углями и розжигом.</p>
+                    <div class="about__stats">
+                        <div class="about__stat">
+                            <div class="about__stat-value">
+                                <span class="about__stat-number" data-target="5.0">5.0</span>
+                                <span class="about__stat-star">★</span>
+                            </div>
+                            <span class="about__stat-label">рейтинг на Яндекс Картах</span>
+                        </div>
+                        <div class="about__stat">
+                            <div class="about__stat-value">
+                                <span class="about__stat-number" data-target="121">121</span>
+                            </div>
+                            <span class="about__stat-label">отзыв гостей</span>
+                        </div>
+                        <div class="about__stat">
+                            <div class="about__stat-value">
+                                <span class="about__stat-number" data-target="40">40</span>
+                                <span class="about__stat-unit">мин</span>
+                            </div>
+                            <span class="about__stat-label">от Казани</span>
+                        </div>
+                        <div class="about__stat">
+                            <div class="about__stat-value">
+                                <span class="about__stat-number" data-target="100">100</span>
+                                <span class="about__stat-unit">%</span>
+                            </div>
+                            <span class="about__stat-label">уединения и уюта</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms -->
+    <section class="section rooms" id="rooms">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Проживание</span>
+                <h2 class="section__title">Размещение</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="rooms__grid" id="roomsGrid">
+                <!-- Loaded from API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Modal -->
+    <div class="modal" id="roomModal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Закрыть">&times;</button>
+            <div class="modal__body" id="roomModalBody">
+                <!-- Filled dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Activities -->
+    <section class="section activities" id="activities">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Досуг</span>
+                <h2 class="section__title">Развлечения и досуг</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="activities__grid">
+                <div class="activity-card reveal" onclick="openActivityModal('chan')">
+                    <div class="activity-card__icon">🔥</div>
+                    <h3 class="activity-card__title">Горячие чаны</h3>
+                    <p class="activity-card__text">Расслабьтесь в чане с гидромассажем и красивой подсветкой под открытым небом</p>
+                    <span class="activity-card__more">Подробнее →</span>
+                </div>
+                <div class="activity-card reveal" onclick="openActivityModal('banya')">
+                    <div class="activity-card__icon">🧖</div>
+                    <h3 class="activity-card__title">Баня-бочка</h3>
+                    <p class="activity-card__text">Традиционная русская баня в кедровой бочке с панорамным видом на природу</p>
+                    <span class="activity-card__more">Подробнее →</span>
+                </div>
+                <div class="activity-card reveal" onclick="openActivityModal('lake')">
+                    <div class="activity-card__icon">🎣</div>
+                    <h3 class="activity-card__title">Озеро и рыбалка</h3>
+                    <p class="activity-card__text">В двух шагах от глэмпинга живописное озеро. Аренда удочек у администратора</p>
+                    <span class="activity-card__more">Подробнее →</span>
+                </div>
+                <div class="activity-card reveal" onclick="openActivityModal('walks')">
+                    <div class="activity-card__icon">🥾</div>
+                    <h3 class="activity-card__title">Пешие прогулки</h3>
+                    <p class="activity-card__text">Лесные тропы для долгих прогулок наедине с природой и сбора ягод</p>
+                    <span class="activity-card__more">Подробнее →</span>
+                </div>
+                <div class="activity-card reveal" onclick="openActivityModal('stars')">
+                    <div class="activity-card__icon">🌟</div>
+                    <h3 class="activity-card__title">Звёздные вечера</h3>
+                    <p class="activity-card__text">Уютные посиделки у костра с гитарой и наблюдение за ночным небом</p>
+                    <span class="activity-card__more">Подробнее →</span>
+                </div>
+                <div class="activity-card reveal" onclick="openActivityModal('bbq')">
+                    <div class="activity-card__icon">🍗</div>
+                    <h3 class="activity-card__title">Мангальные зоны</h3>
+                    <p class="activity-card__text">Оборудованные зоны для барбекю у каждого домика: решётки, шампуры, угли</p>
+                    <span class="activity-card__more">Подробнее →</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section gallery" id="gallery">
+        <div class="container container--wide">
+            <div class="section__header reveal">
+                <span class="section__tag">Атмосфера</span>
+                <h2 class="section__title">Галерея VETKA</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="gallery__grid">
+                <div class="gallery__item reveal" data-caption="Глэмпинг VETKA дом Барнхаус в сосновом бору">
+                    <img src="/Vetka_files/XXL(10)" alt="Дом Барнхаус" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Дом Барнхаус в сосновом бору</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Купольный шатёр VETKA «Панорама»">
+                    <img src="/Vetka_files/XXL(9)" alt="Купольный шатёр" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Купольный шатёр «Панорама»</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Сосновый бор глэмпинга VETKA">
+                    <img src="/glamp_files/BFrcvIz_3-7u9wwNLGqOfUNiZN76gdK1lZUixVHpLtGSogpEVLSX7Xet2-J3x1ZZs5AILZyqKye5zgJ1hu9KLh5I.jpg" alt="Сосновый бор VETKA" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 40%; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Вековой сосновый бор</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Настоящая Кедровая баня-бочка">
+                    <img src="/Vetka_files/XXL(1)" alt="Кедровая баня-бочка" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 30%; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Кедровая баня-бочка</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Сибирский горячий чан на дровах">
+                    <img src="/Vetka_files/XXL(7)" alt="Горячий чан" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Сибирский горячий чан</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Детский игровой городок на территории">
+                    <img src="/Vetka_files/XXL" alt="Детская площадка" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Детская площадка и городок</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Прокат Квадроциклов">
+                    <img src="/Vetka_files/XXL(6)" alt="Прокат Квадроциклов" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Прокат Квадроциклов</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Глэмпинг VETKA банный комплекс">
+                    <img src="/Vetka_files/XXL(8)" alt="Банный комплекс" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Банный комплекс</span></div>
+                </div>
+                <div class="gallery__item reveal" data-caption="Панорамный вид на сосновый бор VETKA">
+                    <img src="/glamp_files/z4cR_Glfirv4gCubb11MtGGXm-qrxeuTQ3lbSo0QRaxEAMm9FaCPccJ4JeIsNuc6jomo_kH2gd42sg49R_g8SrEI.jpg" alt="Сосновый бор VETKA" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="gallery__overlay"><span>Панорамный вид на сосновый бор</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox__close">&times;</button>
+        <button class="lightbox__prev">&#10094;</button>
+        <button class="lightbox__next">&#10095;</button>
+        <div class="lightbox__content" id="lightboxContent"></div>
+        <div class="lightbox__caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Booking -->
+    <section class="section booking" id="booking">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Бронирование</span>
+                <h2 class="section__title">Забронировать домик</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="booking__grid">
+                <form class="booking__form reveal" id="bookingForm">
+                    <div class="form-group">
+                        <label for="bookingRoom">Выберите домик</label>
+                        <select id="bookingRoom" name="room_id" required>
+                            <option value="">— Выберите —</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingCheckIn">Дата заезда</label>
+                            <input type="date" id="bookingCheckIn" name="check_in" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingCheckOut">Дата выезда</label>
+                            <input type="date" id="bookingCheckOut" name="check_out" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingGuests">Количество гостей</label>
+                        <select id="bookingGuests" name="guests_count" required>
+                            <option value="1">1 гость</option>
+                            <option value="2" selected>2 гостя</option>
+                            <option value="3">3 гостя</option>
+                            <option value="4">4 гостя</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingCert">Промокод / Подарочный сертификат (опционально)</label>
+                        <div style="display:flex; gap:10px;">
+                            <input type="text" id="bookingCert" name="certificate_code" placeholder="GIFT-XXXXXX" style="text-transform:uppercase; flex:1;">
+                            <button type="button" class="btn btn--outline" id="applyCertBtn" onclick="applyCertificate()" style="padding: 0 15px;">Применить</button>
+                        </div>
+                        <small id="certResult" style="color:var(--green); display:none; margin-top:5px;"></small>
+                    </div>
+                    <div class="booking__price-display" id="priceDisplay" style="display:none">
+                        <div class="booking__price-label">Стоимость проживания:</div>
+                        <div class="booking__price-value" id="priceValue">—</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingName">Ваше имя</label>
+                        <input type="text" id="bookingName" name="guest_name" placeholder="Иван Иванов" required autocomplete="name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingEmail">Email</label>
+                            <input type="email" id="bookingEmail" name="guest_email" placeholder="example@mail.ru" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingPhone">Телефон</label>
+                            <input type="tel" id="bookingPhone" name="guest_phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingComment">Комментарий</label>
+                        <textarea id="bookingComment" name="comment" rows="3" placeholder="Особые пожелания..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--accent btn--lg btn--full">Забронировать</button>
+                </form>
+                <div class="booking__info reveal">
+                    <div class="booking__info-card">
+                        <h3>Условия проживания</h3>
+                        <ul class="booking__policies">
+                            <li><span class="booking__policy-icon">🕐</span> Заезд с 15:00, выезд до 12:00</li>
+                            <li><span class="booking__policy-icon">✅</span> Бесплатная отмена за 48 часов</li>
+                            <li><span class="booking__policy-icon">🍳</span> Завтрак включён в стоимость</li>
+                            <li><span class="booking__policy-icon">🚗</span> Бесплатная парковка</li>
+                            <li><span class="booking__policy-icon">🚐</span> Трансфер от ж/д станции по запросу</li>
+                            <li><span class="booking__policy-icon">📶</span> Бесплатный Wi-Fi</li>
+                        </ul>
+                    </div>
+                    <div class="booking__info-card">
+                        <h3>Нужна помощь?</h3>
+                        <p>Свяжитесь с нами для консультации или бронирования</p>
+                        <a href="tel:+79393060047" class="booking__phone">+7 (939) 306-00-47</a>
+                        <p class="booking__work-hours">Ежедневно с 9:00 до 21:00</p>
+                    </div>
+                    <div class="booking__info-card">
+                        <h3>Проверить бронирование</h3>
+                        <p>Введите код для проверки статуса</p>
+                        <div class="booking-lookup">
+                            <input type="text" id="lookupCode" placeholder="KDR-XXXXXX" maxlength="12" style="text-transform:uppercase">
+                            <button class="btn btn--accent" id="lookupBtn" onclick="lookupBooking()">Найти</button>
+                        </div>
+                        <div id="lookupResult" style="display:none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Success Modal -->
+    <div class="modal" id="bookingSuccessModal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--sm">
+            <button class="modal__close" aria-label="Закрыть">&times;</button>
+            <div class="modal__body booking-success">
+                <div class="booking-success__icon">✓</div>
+                <h3>Бронирование оформлено!</h3>
+                <p>Ваш код бронирования:</p>
+                <div class="booking-success__code" id="bookingCode"></div>
+                <p class="booking-success__note">Мы отправим подтверждение на указанный email. Если у вас есть вопросы, свяжитесь с нами по телефону +7 (939) 306-00-47.</p>
+                <button class="btn btn--accent" onclick="closeModal('bookingSuccessModal')">Отлично!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificates -->
+    <section class="section certificates" id="certificates">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Подарок</span>
+                <h2 class="section__title">Подарочные сертификаты</h2>
+                <div class="section__divider"></div>
+                <p class="section__subtitle">Подарите незабываемый отдых в глэмпинге VETKA</p>
+            </div>
+            <div class="certificates__grid">
+                <div class="certificates__amounts reveal">
+                    <button class="cert-amount active" data-amount="13000">13 000 ₽</button>
+                    <button class="cert-amount" data-amount="20000">20 000 ₽</button>
+                    <button class="cert-amount" data-amount="30000">30 000 ₽</button>
+                    <button class="cert-amount" data-amount="custom">Другая сумма</button>
+                    <input type="number" class="cert-custom-input" id="certCustomAmount" placeholder="Введите сумму" style="display:none" min="1000" step="1000">
+                </div>
+                <form class="certificates__form reveal" id="certForm">
+                    <input type="hidden" id="certAmount" value="13000">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="certName">Ваше имя</label>
+                            <input type="text" id="certName" required placeholder="Иван Иванов">
+                        </div>
+                        <div class="form-group">
+                            <label for="certEmail">Ваш email</label>
+                            <input type="email" id="certEmail" required placeholder="example@mail.ru" autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="certPhone">Ваш телефон</label>
+                            <input type="tel" id="certPhone" required placeholder="+7 (___) ___-__-__" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="certRecipient">Имя получателя</label>
+                            <input type="text" id="certRecipient" placeholder="Мария Петрова">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="certMessage">Сообщение получателю</label>
+                        <textarea id="certMessage" rows="2" placeholder="С днём рождения! Желаю отличного отдыха в сосновом бору..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--accent btn--lg">Приобрести сертификат</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section reviews" id="reviews">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Отзывы</span>
+                <h2 class="section__title">Отзывы наших гостей</h2>
+                <div class="section__divider"></div>
+                <p style="margin-top:10px; color: var(--color-accent); font-weight: 500;">★ 5.0 из 5.0 на Яндекс Картах (121 отзыв)</p>
+            </div>
+        </div>
+        <div class="reviews__carousel-wrapper reveal">
+            <div class="reviews__carousel" id="reviewsCarousel">
+                <!-- Loaded from JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Вопросы</span>
+                <h2 class="section__title">Частые вопросы</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="faq__list">
+                <div class="faq__item reveal">
+                    <button class="faq__question">
+                        <span>Как добраться до глэмпинга VETKA?</span>
+                        <svg class="faq__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Мы находимся всего в 40 минутах от Казани по адресу: Республика Татарстан, Высокогорский район, села Шуман, Слободская улица, 34. На территории оборудована удобная бесплатная парковка.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question">
+                        <span>Что включено в стоимость домиков?</span>
+                        <svg class="faq__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>В стоимость входит: мангальная зона со включёнными углями, розжигом и решёткой, колонка Алиса, проектор с фильмами, телевизор с подписками, тёплый пол, кондиционер, настольные игры, а также мини-кухня со специями, чаем и питьевой водой.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question">
+                        <span>Можно ли приехать с детьми?</span>
+                        <svg class="faq__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Конечно! На огороженной территории глэмпинга оборудован большой детский городок с качелями, горками и большим количеством игрушек.</p>
+                    </div>
+                </div>
+                <div class="faq__item reveal">
+                    <button class="faq__question">
+                        <span>Как забронировать баню-бочку или чан?</span>
+                        <svg class="faq__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Кедровую баню-бочку и Сибирский горячий чан с пихтовыми ветками можно выбрать прямо при онлайн-бронировании домика или согласовать с администратором по телефону +7 (939) 306-00-47.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section class="section location" id="location">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag">Расположение</span>
+                <h2 class="section__title">Как добраться</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="location__grid">
+                <div class="location__map reveal">
+                    <div style="border-radius: 16px; overflow: hidden; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: #0d1e24; position: relative;">
+                        <iframe src="https://yandex.ru/map-widget/v1/?ll=49.334321%2C56.105742&amp;z=15&amp;pt=49.334321%2C56.105742%2Cpm2rdm" width="100%" height="380" frameborder="0" allowfullscreen="true" style="display: block; border: none; width: 100%;"></iframe>
+                        <div style="padding: 14px 20px; background: rgba(13, 30, 36, 0.95); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--color-border);">
+                            <span style="font-size: 0.9rem; color: var(--color-text-secondary);">📍 с. Шуман, Слободская ул., 34</span>
+                            <a href="https://yandex.ru/maps/org/135393462795" target="_blank" rel="noopener" class="btn btn--accent btn--sm" style="padding: 8px 16px; font-size: 0.85rem;">
+                                Открыть на Яндекс Картах
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="location__info reveal">
+                    <div class="location__address">
+                        <h3>Адрес</h3>
+                        <p>Республика Татарстан, Высокогорский район, село Шуман, Слободская улица, 34</p>
+                    </div>
+                    <div class="location__distances">
+                        <h3>Маршрут и ориентиры</h3>
+                        <ul>
+                            <li>От Казани — 40 минут на авто</li>
+                            <li>Рядом вековой сосновый бор</li>
+                            <li>Бесплатная парковка на территории</li>
+                        </ul>
+                    </div>
+                    <div class="location__contacts">
+                        <h3>Контакты</h3>
+                        <a href="tel:+79393060047" class="location__contact-link">📞 +7 (939) 306-00-47</a>
+                        <div class="location__socials" style="margin-top: 15px; display: flex; gap: 12px;">
+                            <a href="https://t.me/VETKAGLAMP" target="_blank" class="btn btn--outline btn--sm">Telegram Канал</a>
+                            <a href="https://wa.me/79393060047" target="_blank" class="btn btn--outline btn--sm">WhatsApp</a>
+                            <a href="https://vk.ru/vetka.glamp" target="_blank" class="btn btn--outline btn--sm">ВКонтакте</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#hero" class="footer__logo">
+                        <svg class="footer__logo-icon" viewBox="0 0 36 40" fill="none"><path d="M18 0C18 0 8 14 8 24c0 4 2 7 4 9M18 0c0 0 10 14 10 24 0 4-2 7-4 9M18 0v40M18 10c-4 2-7 5-9 8M18 18c4-2 7-5 9-8M18 24c-5 3-8 6-10 8M18 30c5-3 8-6 10-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        <span>VETKA</span>
+                    </a>
+                    <p class="footer__desc">Глэмпинг VETKA в 40 минутах от Казани. Уютные домики, кедровая баня и горячий чан в сосновом бору.</p>
+                </div>
+                <div class="footer__links">
+                    <h4>Навигация</h4>
+                    <a href="#about">О нас</a>
+                    <a href="#rooms">Размещение</a>
+                    <a href="#activities">Развлечения</a>
+                    <a href="#booking">Бронирование</a>
+                    <a href="#certificates">Сертификаты</a>
+                </div>
+                <div class="footer__links">
+                    <h4>Информация</h4>
+                    <a href="#faq">Частые вопросы</a>
+                    <a href="#location">Как добраться</a>
+                </div>
+                <div class="footer__contacts">
+                    <h4>Контакты</h4>
+                    <a href="tel:+79393060047">+7 (939) 306-00-47</a>
+                    <p>с. Шуман, Слободская ул., 34</p>
+                    <p>Ежедневно 9:00 — 21:00</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Глэмпинг VETKA. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

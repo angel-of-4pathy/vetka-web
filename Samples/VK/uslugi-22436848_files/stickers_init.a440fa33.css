@@ -1,0 +1,115 @@
+﻿.LottiePlayer__wrapper--jcoBO {
+  pointer-events: unset;
+}
+
+.LottiePlayer__wrapperClickable--WFxuD {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.GradientLayer__wrapperWithLinearGradient--eXoaB {
+  background: linear-gradient(
+    var(--gradient-deg, 0deg),
+    var(--gradient-color) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.GradientLayer__wrapperWithRadialGradient--sG5fN {
+  background: radial-gradient(
+    50.13% 50.13% at 50.13% 50.13%,
+    var(--gradient-color) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.BackgroundLayer__wrapper--tty7H {
+  pointer-events: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.PlayBackArea__wrapper--QIrz9 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+
+  /* Убираем выделение синим по клику на анимацию в mobile chrome */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.PlayBackArea__area--8x1yp {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.vkit-F1mYKl.vkit-F1mYKl {
+  background-color: transparent;
+  border-color: var(--vkui--color_stroke_contrast);
+  border-radius: 18px;
+}
+
+/* stylelint-disable-next-line selector-max-type */
+
+.vkit-F1mYKl textarea::-moz-placeholder {
+  color: var(--vkui--color_text_contrast);
+}
+
+.vkit-F1mYKl textarea::placeholder {
+  color: var(--vkui--color_text_contrast);
+}
+
+/* необходимо перебить vkuiFormField--hover для textarea */
+
+/* stylelint-disable-next-line selector-max-type */
+
+.vkit-F1mYKl.vkit-F1mYKl.vkit-F1mYKl > span {
+  border-color: var(--vkui--color_stroke_contrast);
+}
+
+/* stylelint-disable-next-line selector-max-type */
+
+.vkit-F1mYKl > div {
+  border-color: var(--vkui--color_stroke_contrast);
+}
+
+.vkit-PC3oxH {
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: inline-block;
+  color: var(--vkui--color_icon_secondary);
+}
+
+.vkit-ROJw9L {
+  vertical-align: text-top;
+}
+
+.vkit-dU2rmY {
+  vertical-align: middle;
+}
+
+.vkit-Z4ASf4 {
+  vertical-align: text-bottom;
+}
+
+.vkit-PC3oxH[disabled] {
+  opacity: var(--vkui--opacity_disable);
+}
+
+.vkit-zYxV4R {
+  margin-left: 4px;
+}
+
+.vkit-y2cmZG {
+  margin-left: 6px;
+}
+
+.vkit-Mqw9vB {
+  margin-left: 8px;
+}
+

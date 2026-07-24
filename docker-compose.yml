@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kedr-glamping
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      # IMPORTANT: Set CORS_ORIGIN to your domain before deploying!
+      # Example: CORS_ORIGIN=https://vetka-glamp.ru
+    volumes:
+      - ./db:/app/db
+      - ./backups:/app/backups
+      - ./logs:/app/logs
+

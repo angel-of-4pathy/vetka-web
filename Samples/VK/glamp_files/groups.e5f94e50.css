@@ -1,0 +1,36 @@
+﻿.CommunityTabOptions__sectionHeader--nF1kI {
+  color: var(--vkui--color_text_subhead);
+  cursor: default;
+}
+
+.EditTabsModal__caption--v6kN7 {
+  color: var(--vkui--color_text_subhead);
+  padding: 0 var(--vkui--size_base_padding_horizontal--regular);
+}
+
+.InfoBanner__background--tSgGU {
+  background-color: var(--vkui--color_background_modal);
+}
+
+.FriendCell__cancelIcon--2jG5H {
+  color: var(--vkui--color_icon_tertiary);
+  padding-right: 2px;
+}
+
+.FriendCell__transparent--pvOv6 {
+  opacity: var(--vkui--opacity_disable_accessibility, .64);
+}
+
+.InviteModal__content--F2CqJ {
+  height: 550px;
+  position: relative;
+  overflow: hidden;
+}
+
+.InviteModal__contentSearch--2qVBp {
+  --content-height: 550px;
+  --footer-height: 65px;
+  --tab-height: 44px;
+
+  height: calc(var(--content-height) + var(--footer-height) + var(--tab-height));
+}
